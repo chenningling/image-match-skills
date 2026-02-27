@@ -1,0 +1,17 @@
+# Ignore editor and Cursor metadata
+.cursor/
+.vscode/
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated outputs
+output/
+*.log
+
+# Environment / secrets
+.env
+*.env
