@@ -1,6 +1,8 @@
 # Image Match Skills
 
-为长文自动生成高质量配图的 Cursor Skill，基于 **LLM 语义分块 + Unsplash 图片搜索**，一键生成带配图的 Markdown 文章。
+为长文自动生成高质量配图的 AI Agent Skill，基于 **LLM 语义分块 + Unsplash 图片搜索**，一键生成带配图的 Markdown 文章。
+
+适用于所有支持 Agent Skills 的 AI 编程助手和智能体平台。
 
 ## 功能简介
 
@@ -13,16 +15,14 @@
 
 ## 目录结构
 
-```bash
+```
 image-match-skills/
-├── SKILL.md                  # Skill 主说明与使用流程
+├── SKILL.md                  # Skill 主说明与工作流程
 ├── README.md                 # 本项目说明
 └── scripts/
     ├── search_images.py      # 调用 Unsplash API 的搜索脚本
     └── requirements.txt      # Python 依赖（requests）
 ```
-
-> `.cursor/skills/image-match/` 下是在本地项目中安装后的拷贝，一般不需要提交到其他仓库，可通过 `.gitignore` 忽略。
 
 ## 安装与使用
 
@@ -58,9 +58,9 @@ export UNSPLASH_ACCESS_KEY=你的_access_key
 
 ### 4. 标注配图位置（LLM / 手动均可）
 
-推荐在 Cursor 中配合本 Skill 使用，由 LLM 自动完成“语义分块 + 标记插入”。
+推荐在支持 Skills 的 AI 助手中使用，由 LLM 自动完成「语义分块 + 标记插入」。
 
-如果你希望在命令行手动体验，可以自己在 Markdown 里加入标记，例如：
+你也可以手动在 Markdown 里加入标记，例如：
 
 ```markdown
 远程工作已成为现代职场的重要趋势。越来越多企业开始拥抱这种灵活的办公方式。
@@ -96,22 +96,15 @@ python scripts/search_images.py marked_article.md output/candidates.json
   - 默认每个位置 `per_page=5`
 - 将候选结果写入 `output/candidates.json`
 
-你可以在 Cursor 里继续用 LLM 读取 `candidates.json`，结合上下文选择每个位置最合适的图片，并把标记替换为真实图片链接，生成最终的 `output_article.md`。
+之后由 LLM 读取 `candidates.json`，结合文章上下文选择每个位置最合适的图片，并把标记替换为真实图片链接，生成最终的 `output_article.md`。
 
-### 6. 作为 Cursor Project Skill 使用
+### 6. 作为项目级 Skill 安装
 
-如果你想在某个 Cursor 项目中长期使用这个 Skill：
+大多数支持 Agent Skills 的平台都允许在项目中放置 Skill 文件，AI 助手会自动识别并加载。通用安装方式：
 
-1. 在目标项目根目录下创建目录：`.cursor/skills/image-match/`
-2. 将本仓库中的 `SKILL.md` 与 `scripts/` 拷贝进去：
-
-```bash
-mkdir -p .cursor/skills/image-match/scripts
-cp SKILL.md .cursor/skills/image-match/SKILL.md
-cp scripts/* .cursor/skills/image-match/scripts/
-```
-
-3. 在该项目中与 AI 对话时，说「帮我给这篇文章配图」，Cursor 会自动根据 `SKILL.md` 中的说明调用脚本和工作流。
+1. 在目标项目中按平台要求创建 Skills 目录（通常位于 `.cursor/skills/`、`.ai/skills/` 等路径，请参考你所用平台的文档）
+2. 将本仓库中的 `SKILL.md` 与 `scripts/` 拷贝到对应目录下
+3. 在 AI 助手的对话中说「帮我给这篇文章配图」，助手会自动根据 `SKILL.md` 中的说明执行工作流
 
 ## 图片 API 替换说明
 
