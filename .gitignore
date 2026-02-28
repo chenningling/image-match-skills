@@ -11,7 +11,9 @@ __pycache__/
 # Generated outputs
 output/
 *.log
+*.zip
 
 # Environment / secrets
 .env
 *.env
+
