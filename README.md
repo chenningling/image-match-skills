@@ -15,6 +15,7 @@
 - **输出命名**：最终文章命名为 **「原始文件名_已配图.md」**，与原文同目录或工作区根目录。
 
 ## 目录结构
+```
 image-match-skills/
 ├── SKILL.md              # Skill 主说明与完整工作流
 ├── README.md             # 本项目说明
@@ -22,6 +23,7 @@ image-match-skills/
 └── scripts/
     ├── search_images.py  # Unsplash 搜索脚本（含降级重试）
     └── requirements.txt  # Python 依赖（requests）
+```
 
 ## 安装与使用
 
