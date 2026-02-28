@@ -15,25 +15,13 @@
 - **输出命名**：最终文章命名为 **「原始文件名_已配图.md」**，与原文同目录或工作区根目录。
 
 ## 目录结构
-
-```
-image-match1.0/
-├── SKILL.md                     # Skill 主说明与完整工作流
-├── README.md                    # 本项目说明
-├── scripts/
-│   ├── search_images.py         # Unsplash 搜索脚本（含降级重试）
-│   └── requirements.txt         # Python 依赖（requests）
-├── output/                      # 工作目录（可忽略提交）
-│   ├── input_article.md         # 转换后的原文
-│   ├── marked_article.md        # 带配图标记 + 排版的中间稿
-│   ├── candidates.json          # 每位置候选图片 JSON
-│   └── *_已配图.md              # 最终配图文章（或保存到用户指定路径）
-└── .cursor/skills/image-match/  # Cursor 技能目录（可选）
-    ├── SKILL.md
-    └── scripts/
-        ├── search_images.py
-        └── requirements.txt
-```
+image-match-skills/
+├── SKILL.md              # Skill 主说明与完整工作流
+├── README.md             # 本项目说明
+├── .gitignore
+└── scripts/
+    ├── search_images.py  # Unsplash 搜索脚本（含降级重试）
+    └── requirements.txt  # Python 依赖（requests）
 
 ## 安装与使用
 
